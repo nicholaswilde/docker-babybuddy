@@ -38,8 +38,8 @@ $ docker run -d \
 
 ### docker-compose
 
-* [docker-compose.sqlite.yaml](./docker-compose.sqlite.yaml).
-* [docker-cmopose.postgres.yaml](./docker-compose.postgres.yaml)
+* [sqlite](./docker-compose.sqlite.yaml).
+* [postgres](./docker-compose.postgres.yaml)
 
 ## Development
 
