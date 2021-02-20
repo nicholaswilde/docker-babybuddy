@@ -22,3 +22,4 @@ pyenv
 Vagrantfile
 *.tar.gz
 *.zip
+node_modules

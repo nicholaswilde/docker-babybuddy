@@ -46,10 +46,13 @@ monitor:
 no-cache: Dockerfile
 	docker buildx build -t $(NS)/$(IMAGE_NAME):$(VERSION)-ls$(LS) $(BUILD) -f Dockerfile .
 
-## packages : Display package versions
+## packages 	: Display package versions
 packages:
-	docker run --rm -it "${BASE}" /bin/sh -c "apk update && apk policy  ${PACKAGES}"
-	# docker run --rm -it "${BASE}" /bin/sh -c "apt-get update && apt-cache policy  ${PACKAGES}"
+	docker run --rm -it "${BASE}" /bin/sh -c "apt-get update && apt-cache policy  ${PACKAGES}"
+
+## pip 		: Display pip versions
+pip:
+	docker run --rm -it "${BASE}" /bin/sh -c "pip install ${PIP} && pip show ${PIP}"
 
 ## prune		: Prune the docker builder
 prune:
@@ -67,7 +70,7 @@ push-latest: Dockerfile
 push-all: Dockerfile
 	docker buildx build -t $(NS)/$(IMAGE_NAME):$(VERSION)-ls$(LS) $(PLATFORMS) $(BUILD) -f Dockerfile --push .
 
-## readme   : Update the README.md by replacing template with the image name.
+## readme		: Update the README.md by replacing template with the image name.
 readme: README.md
 	sed -i "s/template/$(IMAGE_NAME)/g" README.md
 
@@ -79,12 +82,13 @@ rm: stop
 run:
 	docker run --rm --name $(CONTAINER_NAME)-$(CONTAINER_INSTANCE) $(PORTS) $(ENV) $(NS)/$(IMAGE_NAME):$(VERSION)-ls$(LS)
 
+
 ## rund   	: Run the Docker image in the background
 rund:
 	docker run -d --rm --name $(CONTAINER_NAME)-$(CONTAINER_INSTANCE) $(PORTS) $(ENV) $(NS)/$(IMAGE_NAME):$(VERSION)-ls$(LS)
 
 shell:
-	docker exec -it $(CONTAINER_NAME)-$(CONTAINER_INSTANCE) /bin/sh
+	docker run -it --rm $(NS)/$(IMAGE_NAME):$(VERSION)-ls$(LS) /bin/sh
 
 ## stop   	: Stop the Docker container
 stop:
@@ -92,7 +96,7 @@ stop:
 
 ## test		: Test the image with snyk
 test: Dockerfile
-	snyk container test $(NS)/$(IMAGE_NAME):$(VERSION)-ls$(LS) --file=Dockerfile
+	snyk container test $(NS)/$(IMAGE_NAME):$(VERSION)-ls$(LS) --exclude-base-image-vulns --file=Dockerfile
 
 ## help   	: Show help
 help: Makefile

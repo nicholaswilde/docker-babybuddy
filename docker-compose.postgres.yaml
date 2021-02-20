@@ -1,0 +1,37 @@
+---
+version: "2.4"
+services:
+  app:
+    image: nicholaswilde/babybuddy:latest
+    container_name: babybuddyapp   # Container_name is an optional value for single-container
+    # deployments to set a friendly container name.
+    # Disable in swarm or other multi-container setups.
+    # See README.md#configuration for other environment configuration options.
+    environment:
+      - ALLOWED_HOSTS=*   # comma separated list of IP addresses or hosts that can access the web UI
+      - DB_PASSWORD=postgres       # must correspond with POSTGRES_PASSWORD in DB
+      - DJANGO_SETTINGS_MODULE=babybuddy.settings.docker
+      - SECRET_KEY="password"               # Generate a random string here to secure the Django instance
+      - TIME_ZONE=                # In the tzdata format, IE, "America/Denver"
+      - DEBUG=False               # Turn to False in production
+    volumes:
+      - data:/app/data:rw
+      - media:/app/media:rw
+    ports:
+      - "8000:8000"               # For Portainer, select another port for babybuddy such as 7000, for example "7000:8000"
+    restart: unless-stopped
+  db:
+    image: postgres:11             # pin postgres to a major version
+    container_name: babybuddydb    # Container_name is an optional value for single-container
+    # deployments to set a friendly container name.
+    # Disable in swarm or other multi-container setups.
+    environment:
+      - PGDATA=/db-data
+      - POSTGRES_PASSWORD=postgres  # must correspond with DB_PASSWORD in APP
+    volumes:
+      - db:/db-data:rw
+    restart: unless-stopped
+volumes:
+  data:
+  media:
+  ddb:
