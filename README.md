@@ -10,7 +10,7 @@ A multi-architecture image for [Baby Buddy](https://github.com/babybuddy/babybud
 
 ## Dependencies
 
-* sqlite (optional)
+* sqlite
 * postgres (optional)
 
 ## Usage
@@ -38,7 +38,7 @@ $ docker run -d \
 
 ### docker-compose
 
-* [sqlite](./docker-compose.sqlite.yaml).
+* [sqlite](./docker-compose.sqlite.yaml)
 * [postgres](./docker-compose.postgres.yaml)
 
 ## Development
