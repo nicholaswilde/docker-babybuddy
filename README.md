@@ -43,11 +43,11 @@ $ docker run -d \
 
 ## Development
 
-See [Wiki](https://github.com/nicholaswilde/docker-babybuddy/wiki/Development).
+See [Wiki](https://github.com/nicholaswilde/docker-template/wiki/Development).
 
 ## Troubleshooting
 
-See [Wiki](https://github.com/nicholaswilde/docker-babybuddy/wiki/Troubleshooting).
+See [Wiki](https://github.com/nicholaswilde/docker-template/wiki/Troubleshooting).
 
 ## Pre-commit hook
 
