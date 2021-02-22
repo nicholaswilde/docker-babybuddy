@@ -56,6 +56,7 @@ RUN \
   apt-get update && \
   apt-get install -y --no-install-recommends \
     libjpeg-dev=1:1.5.2-2+deb10u1 \
+    libjpeg62-turbo=1:1.5.2-2+deb10u1 \
     libpq-dev=11.10-0+deb10u1 \
     build-essential=12.6 \
     zlib1g-dev=1:1.2.11.dfsg-1 && \
@@ -68,10 +69,7 @@ RUN \
   pipenv install --deploy --system && \
   echo "**** cleanup ****" && \
   apt-get autoremove -y \
-    libjpeg-dev \
-    libpq-dev \
-    build-essential \
-    zlib1g-dev && \
+    build-essential && \
   apt-get clean && \
   rm -rf \
     /tmp/* \
