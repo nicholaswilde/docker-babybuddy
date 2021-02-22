@@ -14,7 +14,7 @@ services:
       - TIME_ZONE=                # In the tzdata format, IE, "America/Denver"
       - DEBUG=False               # Turn to False in production
     volumes:
-      - ./data:/app/data:rw
+      - data:/app/data:rw
       - media:/app/media:rw
     ports:
       - "8000:8000"               # For Portainer, select another port for babybuddy such as 7000, for example "7000:8000"
