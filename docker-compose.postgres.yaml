@@ -34,4 +34,4 @@ services:
 volumes:
   data:
   media:
-  ddb:
+  db:
