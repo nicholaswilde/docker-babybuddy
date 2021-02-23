@@ -32,14 +32,28 @@ $ docker run -d \
   nicholaswilde/babybuddy
 ```
 
-| user | uid |
-|:----:|:---:|
-| abc  | 911 |
-
 ### docker-compose
 
 * [sqlite](./docker-compose.sqlite.yaml)
 * [postgres](./docker-compose.postgres.yaml)
+
+## Configuration
+
+### Login
+
+| default user | password |
+|:----:|:---:|
+| admin  | admin |
+
+### Volumes
+
+| user | uid |
+|:----:|:---:|
+| abc  | 911 |
+
+```shell
+$ chown -R 911:911 ./data
+```
 
 ## Development
 
