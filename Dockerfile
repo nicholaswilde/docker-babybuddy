@@ -1,6 +1,6 @@
 FROM ubuntu:18.04 as dl
 ARG VERSION
-ARG CHECKSUM=06db32d03dca6ac8a8245928d1cb92b37d3aec97084d05665d3bae2c86a65761
+ARG CHECKSUM=a6a353c88167d264dce48d39468ffea7f7c617fe94dea08a9d71f3255ec36a5e
 ARG FILENAME="${VERSION}.tar.gz"
 WORKDIR /tmp
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -36,6 +36,7 @@ COPY --from=dl ["/app/core/", "./core"]
 COPY --from=dl ["/app/dashboard/", "./dashboard"]
 COPY --from=dl ["/app/reports/", "./reports"]
 COPY --from=dl ["/app/static/", "./static"]
+COPY --from=dl ["/app/locale/", "./locale"]
 COPY ["./entrypoint.sh", "/app"]
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN \
