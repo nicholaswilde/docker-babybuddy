@@ -1,6 +1,6 @@
 FROM ubuntu:18.04 as dl
 ARG VERSION
-ARG CHECKSUM=a6a353c88167d264dce48d39468ffea7f7c617fe94dea08a9d71f3255ec36a5e
+ARG CHECKSUM
 ARG FILENAME="${VERSION}.tar.gz"
 WORKDIR /tmp
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -58,7 +58,7 @@ RUN \
   apt-get install -y --no-install-recommends \
     libjpeg-dev=1:1.5.2-2+deb10u1 \
     libjpeg62-turbo=1:1.5.2-2+deb10u1 \
-    libpq-dev=11.10-0+deb10u1 \
+    libpq-dev=11.12-0+deb10u1 \
     build-essential=12.6 \
     zlib1g-dev=1:1.2.11.dfsg-1 && \
   pip install --no-cache-dir --upgrade \

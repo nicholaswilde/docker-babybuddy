@@ -1,0 +1,10 @@
+---
+port:
+  tcp:8000:
+    listening: true
+
+http:
+  http://localhost:8000/login/?next=/:
+    status: 200
+    body:
+      - '<title>Login | Baby Buddy</title>'
