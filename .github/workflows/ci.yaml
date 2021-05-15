@@ -28,11 +28,6 @@ on:
 env:
   # How long to sleep before running the tests (gives the application time to start)
   GOSS_SLEEP: 30
-  ALLOWED_HOSTS: '*'
-  DJANGO_SETTINGS_MODULE: babybuddy.settings.base
-  SECRET_KEY: password
-  TIME_ZONE: America/Los_Angeles
-  DEBUG: 'False'
   
 jobs:
   prep:
@@ -156,6 +151,11 @@ jobs:
         if: needs.prep.outputs.goss == 'true'
         env:
           GOSS_FILE: ./goss.yaml
+          ALLOWED_HOSTS: '*'
+          DJANGO_SETTINGS_MODULE: babybuddy.settings.base
+          SECRET_KEY: password
+          TIME_ZONE: America/Los_Angeles
+          DEBUG: 'False'
         run: |
           dgoss run ghcr.io/${{ github.repository_owner }}/${{needs.prep.outputs.repo_name}}:test
       
