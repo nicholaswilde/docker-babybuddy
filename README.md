@@ -57,13 +57,13 @@ $ chown -R 911:911 ./data
 
 ## Development
 
-See [Wiki](https://github.com/nicholaswilde/docker-template/wiki/Development).
+See [docs](https://nicholaswilde.io/docker-docs/development).
 
 > **Note:** This image can't be pushed to the image registries using github-actions because it takes too long to build and timeouts.
 
 ## Troubleshooting
 
-See [Wiki](https://github.com/nicholaswilde/docker-template/wiki/Troubleshooting).
+See [docs](https://nicholaswilde.io/docker-docs/troubleshooting).
 
 ## Pre-commit hook
 
