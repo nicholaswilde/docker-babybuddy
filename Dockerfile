@@ -11,7 +11,7 @@ RUN \
     wget=1.19.4-1ubuntu2.2 && \
   echo "**** download app ****" && \
   mkdir /app && \
-  wget --no-check-certificate "https://github.com/babybuddy/babybuddy/archive/${FILENAME}" && \
+  wget -q --no-check-certificate "https://github.com/babybuddy/babybuddy/archive/${FILENAME}" && \
   echo "${CHECKSUM}  ${FILENAME}" | sha256sum -c && \
   tar -xvf "${FILENAME}" --strip-components 1 -C /app
 WORKDIR /app
@@ -19,6 +19,7 @@ WORKDIR /app
 FROM python:3.7.10-slim-buster
 ARG BUILD_DATE
 ARG VERSION
+# hadolint ignore=DL3048
 LABEL build_version="Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="nicholaswilde"
 ENV PYTHONUNBUFFERED 1
