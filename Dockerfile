@@ -61,7 +61,8 @@ RUN \
     libjpeg62-turbo=1:1.5.2-2+deb10u1 \
     libpq-dev=11.12-0+deb10u1 \
     build-essential=12.6 \
-    zlib1g-dev=1:1.2.11.dfsg-1 && \
+    zlib1g-dev=1:1.2.11.dfsg-1 \
+    python3-mysqldb=1.3.10-2 && \
   pip install --no-cache-dir --upgrade \
     pipenv==2020.11.15 \
     gunicorn==20.0.4 \
