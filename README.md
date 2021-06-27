@@ -1,4 +1,5 @@
 # Docker Baby Buddy
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 [![Docker Image Version (latest by date)](https://img.shields.io/docker/v/nicholaswilde/babybuddy)](https://hub.docker.com/r/nicholaswilde/babybuddy)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nicholaswilde/babybuddy)](https://hub.docker.com/r/nicholaswilde/babybuddy)
 [![GitHub](https://img.shields.io/github/license/nicholaswilde/docker-babybuddy)](./LICENSE)
@@ -6,7 +7,9 @@
 [![lint](https://github.com/nicholaswilde/docker-babybuddy/workflows/lint/badge.svg?branch=main)](https://github.com/nicholaswilde/docker-babybuddy/actions?query=workflow%3Alint)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
-A multi-architecture image for [Baby Buddy](https://github.com/babybuddy/babybuddy).
+:no_entry:&nbsp; DEPRECATED A multi-architecture image for [Baby Buddy](https://github.com/babybuddy/babybuddy).
+
+This image has been depcrecated. Please use the [linuxserver.io version](https://github.com/linuxserver/docker-babybuddy) instead.
 
 ## Dependencies
 
